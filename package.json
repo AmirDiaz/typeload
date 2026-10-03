@@ -1,0 +1,89 @@
+{
+  "name": "typeload",
+  "displayName": "TypeLoad — real type load-time analytics for TypeScript",
+  "description": "Measures the real cost of every TypeScript type in your project: first-touch resolution time and checker instantiation counts, straight from the compiler API. Shows CodeLens metrics, a slowest-types leaderboard, and per-type drill-down.",
+  "version": "0.1.0",
+  "publisher": "amirdiaz",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AmirDiaz/typeload"
+  },
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Linters",
+    "Testing"
+  ],
+  "keywords": [
+    "typescript",
+    "performance",
+    "types",
+    "type-checker",
+    "slow types"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "typeload.measureProject",
+        "title": "TypeLoad: Measure Project Types",
+        "category": "TypeLoad"
+      },
+      {
+        "command": "typeload.showLeaderboard",
+        "title": "TypeLoad: Show Slowest Types",
+        "category": "TypeLoad"
+      },
+      {
+        "command": "typeload.measureAtCursor",
+        "title": "TypeLoad: Measure Type at Cursor (isolated)",
+        "category": "TypeLoad"
+      },
+      {
+        "command": "typeload.revealInLeaderboard",
+        "title": "TypeLoad: Reveal Declaration in Leaderboard",
+        "category": "TypeLoad"
+      }
+    ],
+    "configuration": {
+      "title": "TypeLoad",
+      "properties": {
+        "typeload.codeLens.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show per-declaration cost CodeLens after a measurement."
+        },
+        "typeload.codeLens.thresholdMs": {
+          "type": "number",
+          "default": 0,
+          "description": "Only show CodeLens for declarations whose first-touch cost is at least this many milliseconds."
+        },
+        "typeload.codeLens.topPerFile": {
+          "type": "number",
+          "default": 5,
+          "description": "Show at most this many CodeLens entries per file, ranked by cost."
+        },
+        "typeload.worker.maxBufferMb": {
+          "type": "number",
+          "default": 256,
+          "description": "Maximum stdout buffer size for the measurement worker, in MB."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "test": "node --test test/",
+    "package": "vsce package || npx @vscode/vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.75.0",
+    "typescript": "5.9"
+  }
+}
