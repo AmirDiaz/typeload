@@ -2,8 +2,10 @@
 .vscode-test/**
 client/**
 test/**
-node_modules/**
 out/**/*.map
 src/**
 *.ts
 tsconfig.json
+node_modules/**
+!node_modules/typescript/**
+!node_modules/typescript/**/*

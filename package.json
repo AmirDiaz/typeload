@@ -1,6 +1,6 @@
 {
   "name": "typeload",
-  "displayName": "TypeLoad — real type load-time analytics for TypeScript",
+  "displayName": "TypeLoad \u2014 real type load-time analytics for TypeScript",
   "description": "Measures the real cost of every TypeScript type in your project: first-touch resolution time and checker instantiation counts, straight from the compiler API. Shows CodeLens metrics, a slowest-types leaderboard, and per-type drill-down.",
   "version": "0.1.0",
   "publisher": "amirdiaz",
@@ -83,7 +83,9 @@
   },
   "devDependencies": {
     "@types/node": "^20.11.0",
-    "@types/vscode": "^1.75.0",
-    "typescript": "5.9"
+    "@types/vscode": "^1.75.0"
+  },
+  "dependencies": {
+    "typescript": "^5.9.0"
   }
 }
